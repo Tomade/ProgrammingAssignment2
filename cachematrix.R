@@ -48,13 +48,12 @@ makeCacheMatrix <- function(x = matrix()) {
 # The function does no error checking and assumes the matrix to be invertible.
 
 cacheSolve <- function(x, ...) {
-  ## Return a matrix that is the inverse of 'x'
   inv <- x$getinverse()
   if (!is.null(inv)) {
     return(inv)
   }
   data <- x$get()
-  inv <- solve(data, ...)
+  inv <- solve(data)
   x$setinverse(inv)
   inv
 }
